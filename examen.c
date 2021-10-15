@@ -7,8 +7,8 @@
 
 void captura(int clave[E], char nombre[50][E], float estaturaSueldo[E][M]);
 void imprime(int clave[E], char nombre[50][E], float estaturaSueldo[E][M], int empleado);
-void buscaValor(int arr[E][M], int *ma, int *posDos);
-int Bubuja(int A[E][M]);
+void buscaValor(float arr[E][M], float *ma, int *posDos);
+int Bubuja(float A[E][M]);
 
 
 int main()
@@ -54,7 +54,7 @@ void imprime(int clave[E], char nombre[50][E], float estaturaSueldo[E][M], int e
 	int j=0;
 	printf("Primero el de mayor sueldo, luego lista completa\n\n");
 	printf("Clave  Nombre  Estatura  Sueldo\n");
-	printf("%d \t%s\t  %.2f\t  %.2f \n\n", clave[empleado], nombre[empleado], estaturaSueldo[empleado][j], estaturaSueldo[empleado][j+1]);
+	printf("%d  %s  %.2f  %.2f \n\n", clave[empleado], nombre[empleado], estaturaSueldo[empleado][j], estaturaSueldo[empleado][j+1]);
 	
 	for(i=0; i<E; i++)
 	{
@@ -68,7 +68,7 @@ void imprime(int clave[E], char nombre[50][E], float estaturaSueldo[E][M], int e
 	}
 }
 
-void buscaValor(int estaturaSueldo[E][M], int *ma, int *posDos)
+void buscaValor(float estaturaSueldo[E][M], float *ma, int *posDos)
 {
 	int i;
 	
@@ -82,7 +82,7 @@ void buscaValor(int estaturaSueldo[E][M], int *ma, int *posDos)
 	}
 }
 
-int Bubuja(int A[E][M])
+int Bubuja(float A[E][M])
 {
     int aux, p, cont, pos;
 
