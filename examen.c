@@ -1,6 +1,8 @@
+//Vital Muñoz Erik
+
 #include <stdio.h>
 
-#define E 3
+#define E 3 //Empledos
 #define M 4
 
 void captura(int clave[E], char nombre[50][E], float estaturaSueldo[E][M]);
@@ -11,16 +13,17 @@ int Bubuja(int A[E][M]);
 
 int main()
 {
-	int mayor=0;
+	float mayor=0;
 	int posicionMayor;
 	int empleado;
 	int clave[E];
 	char nombre[50][E]; //
 	float estaturaSueldo[E][M];
-	buscaValor(estaturaSueldo, &mayor, &posicionMayor);
 	empleado=Bubuja(estaturaSueldo);
 	
 	captura(clave, nombre, estaturaSueldo);
+	buscaValor(estaturaSueldo, &mayor, &posicionMayor);
+	printf("El mayor valor se encuentra en la posicion [%d] y es %.2f\n\n", posicionMayor, mayor);
 	imprime(clave, nombre, estaturaSueldo, empleado);
 	
 	return 0;
@@ -49,9 +52,9 @@ void imprime(int clave[E], char nombre[50][E], float estaturaSueldo[E][M], int e
 {
 	int i;
 	int j=0;
-	printf("Primero el de mayor sueldo\n\n");
+	printf("Primero el de mayor sueldo, luego lista completa\n\n");
 	printf("Clave  Nombre  Estatura  Sueldo\n");
-	printf("%d %s %.2f %.2f \n", clave[empleado], nombre[empleado], estaturaSueldo[empleado][j], estaturaSueldo[empleado][j+1]);
+	printf("%d \t%s\t  %.2f\t  %.2f \n\n", clave[empleado], nombre[empleado], estaturaSueldo[empleado][j], estaturaSueldo[empleado][j+1]);
 	
 	for(i=0; i<E; i++)
 	{
@@ -65,15 +68,15 @@ void imprime(int clave[E], char nombre[50][E], float estaturaSueldo[E][M], int e
 	}
 }
 
-void buscaValor(int arr[E][M], int *ma, int *posDos)
+void buscaValor(int estaturaSueldo[E][M], int *ma, int *posDos)
 {
 	int i;
 	
 	for(i=0; i<E; i++)
 	{
-		if(*ma<arr[0][i])
+		if(*ma<estaturaSueldo[0][i])
 		{
-			*ma=arr[0][i];
+			*ma=estaturaSueldo[0][i];
 			*posDos=i;
 		}
 	}
